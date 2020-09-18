@@ -224,6 +224,12 @@ a.active,a:hover{
 
 
 
+a {                         /*links*/
+  color: #0080f6;
+  text-decoration: none;
+}
+
+
 
 
 

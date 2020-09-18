@@ -157,7 +157,6 @@ a.active,a:hover{
     background-color: #fff;
     margin: 0 auto;
     padding: 2em 0;
-    min-height: 100%;
     height: 100%;
     box-sizing: border-box;
     text-align: center;
@@ -199,14 +198,11 @@ a.active,a:hover{
     box-sizing: border-box;
     padding: 10px;
     border: 1px solid #e0e8e8;
-    border-top: none;
-    border-right: none;
     box-shadow: 0 1px 2px rgba(0,0,0,.1);
-    max-width: 765px;
+    max-width: 640px; /*before: 900*/
 }
 
-
-
+/*640 max width im smart screen 765*/
 
 
 
@@ -214,7 +210,6 @@ a.active,a:hover{
   width: 100%;
   position: relative;
   overflow: hidden;
-  background-size: cover;
   max-height: 800px;
   border: 1px solid transparent;
 }
@@ -232,7 +227,7 @@ a.active,a:hover{
     font-size: 16px;
     line-height: 1;
     cursor: hand;
-    border-radius: 4px;
+    border-radius: 15px;
 }
 
 .qp_table {          /*breite der Altersbuttons*/
@@ -265,8 +260,8 @@ a.active,a:hover{
 /*next button*/          
 .qp_btn {                   /*next button, jedoch ganze breite*/
     width: 100%;
-    height: 50px;
-    margin: 2px 0 0;
+    height: 96px;
+    margin: 0;
     color: #fff;
     cursor: pointer;
     cursor: hand;
@@ -275,7 +270,7 @@ a.active,a:hover{
     font-size: 20px;
     font-family: Helvetica, Arial, sans-serif;
     border: 1px solid #0d8bff;
-    border-radius: 4px;
+    border-radius: 15px;
 }
 
 
@@ -305,6 +300,42 @@ a {                         /*links*/
 
 
 
+@media (min-width: 1000px) {
+  .quiz-take-c1 {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 765px;
+  }
+
+  .imgi {
+    max-height: 660px;
+  }
+  
+
+  .qp_grid {
+    display: block;
+    width: 30%;
+  }
+
+
+
+  .qp_col {   /*td*/
+    display: block;
+    min-width: 205px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+  }
+
+
+}
+
+
+
+a {                         /*links*/
+  color: #0080f6;
+  text-decoration: none;
+}
 
 
 
@@ -312,10 +343,7 @@ a {                         /*links*/
 
 
 
-
-
-
-
+/* ---------------------------------------------------------------- */
 
 
 
@@ -340,6 +368,7 @@ a {                         /*links*/
   border: 1px solid white;
   text-align: center;
 }
+
 
 #w3review {
   width: 100%;
