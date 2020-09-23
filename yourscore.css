@@ -152,36 +152,86 @@ a.active,a:hover{
 /*--------------------------------------------------------*/
 
 
+#content {
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 2em 0;
+  height: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  padding-bottom: 44px;
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  min-height: calc(100% - 56px);
+  padding-top: 10px; 
+}
 
 
+.quiz-take-cols {
+  background-color: #eaeaea;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
 
-.scoreboard {
+
+.quiz-take-c1 {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #e0e8e8;
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
+  max-width: 640px; /*before: 900*/
+  padding-top: 200px;
+}
+
+@media (min-width: 1000px) {
+  .quiz-take-c1 {
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
     max-width: 765px;
   }
-  
+}
+
+a {                         /*links*/
+  color: #0080f6;
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
   
   .content-table {
     border-collapse: collapse;
     margin: 25px 0;
-    min-width: 400px;
+    min-width: 300px;
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
   }
   
   .content-table thead tr {
     background-color: #009879;
     color: #ffffff;
-    text-align: left;
+    text-align: center;
     font-weight: bold;
   }
   
   .content-table th,
   .content-table td {
-    padding: 12px 15px;
+    padding: 8px 10px;
   }
   
   .content-table tbody tr {
