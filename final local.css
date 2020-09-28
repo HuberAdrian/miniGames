@@ -207,29 +207,11 @@ a.active,a:hover{
 
 
 
-.imgi {                
-  width: 100%;
+.images {
   position: relative;
-  overflow: hidden;
-  max-height: 800px;
-  border: 1px solid transparent;
 }
 
 
-
-.qp_a {                   /*umrandungen um altersbuttons*/
-    clear: both;
-    padding: 40px 5px;
-    margin: 0px;
-    display: block;
-    color: #353535;
-    background: #f4f4f4;
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1;
-    cursor: hand;
-    border-radius: 15px;
-}
 
 .qp_table {          /*breite der Altersbuttons*/
     width: 100%;
@@ -253,15 +235,48 @@ a.active,a:hover{
   height: 100%;
   box-sizing: border-box;
   width: 50%;
+  cursor: pointer;
+
+  clear: both;
+    
+  padding: 2px 0px 1px 3px;
+
+  color: #353535;
+  background: #f4f4f4;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 15px;
+  border: 1px solid rgba(0,0,0,.1);
 }
 
 
 
 
+
+
+
+
+
+
+
+.qp_i {
+  display: none;
+}
+
+
+.lebal {
+  padding: 40px 5px;
+  display: block;
+  cursor: pointer;
+}
+
+
 /*next button*/          
 .qp_btn {                   /*next button, jedoch ganze breite*/
     width: 100%;
-    height: 96px;
+    height: 100px; /*96px*/
     margin: 0;
     color: #fff;
     cursor: pointer;
@@ -276,29 +291,6 @@ a.active,a:hover{
 
 
 
-a {                         /*links*/
-    color: #0080f6;
-    text-decoration: none;
-}
-
-
-
-.qp_bo {                   /*nichts*/
-    clear: both;
-    padding-left: 0;
-    text-align: center;
-}
-
-.qp_hrb {
-    float: none;
-    width: 100%;
-    padding-left: 5px;
-    display: inline-block;
-    height: 100%;
-    box-sizing: border-box;
-    text-decoration: none;
-}
-
 .score {
   display: inline-block;
   width: 100%;
@@ -311,6 +303,11 @@ a {                         /*links*/
   max-width: 640px;
 }
 
+
+.qp_col :hover {
+  border-radius: 15px;
+  background-color: rgb(13,139,255,.5); 
+}
 
 
 @media (min-width: 1000px) {
@@ -351,8 +348,6 @@ a {                         /*links*/
   color: #0080f6;
   text-decoration: none;
 }
-
-
 
 
 /* ---------------------------------------------------------------- */
