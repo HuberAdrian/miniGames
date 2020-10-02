@@ -1,7 +1,11 @@
 let rand1;
 let rand2;
+let correct;
 let score = 0;
 
+
+//onclikc compare with correct
+//return functions to create false
 
 
 function function1 (x) {  //testfunction for onClick
@@ -30,7 +34,7 @@ function newGame () {
 
     guessPic (rand1);
 
-    createGuesses (rand1);
+    correct = createGuesses (rand1);
 }
 
 
@@ -63,10 +67,15 @@ function createGuesses (x) {
     let y = Math.floor(Math.random() * 5);  //number for the correct choice
     document.getElementById(`ii${y}`).innerHTML= `${z}`;
 
+
     createFalse (0, z, y);   // (Position, rightAnsw, positionRightAnsw)
     createFalse (1, z, y);
     createFalse (2, z, y);
     createFalse (3, z, y);
+
+    return z;
+
+    }
 }
 
 
@@ -92,22 +101,22 @@ function createFalse (a, b, c) {
                 falseGu = "Sascha";
                 break;
             case 5:
-                falseGu = "Streamer";
+                falseGu = "TryMacs";
                 break;
             case 6:
-                falseGu = "Streamer2";
+                falseGu = "Knossi";
                 break;
             case 7:
-                falseGu = "Streamer3";
+                falseGu = "Papaplatte";
                 break;
             case 8:
-                falseGu = "Streamer4";
+                falseGu = "Justin";
                 break;
             case 9:
-                falseGu = "Streamer5";
+                falseGu = "JulienBam";
                 break;
             case 10:
-                falseGu = "Streamer6";
+                falseGu = "Regina";
                 break;
             case 11:
                 falseGu = "Streamer7";
@@ -125,6 +134,13 @@ function createFalse (a, b, c) {
     else {
     document.getElementById(`ii${a}`).innerHTML= `${falseGu}`;
     }
+}
+
+
+
+
+function compareStr () {
+
 }
 
 
