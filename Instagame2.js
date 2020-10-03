@@ -3,7 +3,12 @@ let false1;
 let false2;
 let false3;
 let false4;
-let score;
+let score = 0;
+let posRight;
+
+//onclikc compare with correct porblem: gloabl variables declare y (Stremaer number, not position)
+//display image
+//next = clear all start new game
 
 
 
@@ -13,28 +18,23 @@ function newGame () {
     let rand1 = Math.floor(Math.random() * 100);  //number for correctAnswer
     let rand10 = Math.floor(Math.random() * 100);  //random number for photo
 
-    let posRight = Math.floor(Math.random() * 5);  //Position for the right answer
+    posRight = Math.floor(Math.random() * 5);  //Position for the right answer
+
 
     rand1 = 1;
     rand2 = 2;
     rand10 = 1;
 
 
+
     guessPic (rand1, rand10);
-
-
 
     correct = createGuess (rand1, true, posRight);
 
-
     false1 = createGuess (rand1, false, posRight, 0);
-    //false2 = createGuess (rand1, false, posRight, 1, false1);
-    //false3 = createGuess (rand1, false, posRight, 2, false1, false2);
-    //false4 = createGuess (rand1, false, posRight, 3, false1, false2, false3);
-
-
-    console.log(correct);
-    console.log(false1);
+    false2 = createGuess (rand1, false, posRight, 1, false1);
+    false3 = createGuess (rand1, false, posRight, 2, false1, false2);
+    false4 = createGuess (rand1, false, posRight, 3, false1, false2, false3);
 }
 
 
@@ -52,8 +52,10 @@ function createGuess (a1, a2, a3, a4, a5 ,a6, a7) {  //1:rand1, 2:boolean, 3: po
         do {
             y = Math.floor(Math.random() * 11);  
         }
-        while (y == a1 || guess == a5 || guess == a6 || guess == a7);
+        while (y == a1 || y == a5 || y == a6 || y == a7);
     }
+  
+    
 
 
     switch (y) {                       //create guess based on y
@@ -97,16 +99,17 @@ function createGuess (a1, a2, a3, a4, a5 ,a6, a7) {  //1:rand1, 2:boolean, 3: po
 
 
 
-    if (a4 == a3) {
-        a4 = 5;
-    }
-
-
     if (a2 == true) {                                         //assign it to the table
        document.getElementById(`ii${a3}`).innerHTML= `${guess}`;
     }
     else {
-        document.getElementById(`ii${a4}`).innerHTML= `${guess}`;
+        if (a4 == a3) {
+            a3 = 4;
+        }
+        else {
+            a3 = a4;
+        }
+        document.getElementById(`ii${a3}`).innerHTML= `${guess}`;
     }
 
 
@@ -123,5 +126,17 @@ function guessPic (x, y) { //display guessPic based on rand1
  
  function solutionPic (y) {
      document.getElementById(`imgi`).innerHTML= `<img src="img1/infl${y}.png" style="width: 100%; max-height: 800px; " >`;
+ }
+
+ function compareStr (x) {
+     if (posRight == x) {
+         score ++;
+         console.log(score);
+         newGame ();
+
+     }
+     else {
+         console.log("fail");
+     }
  }
  
