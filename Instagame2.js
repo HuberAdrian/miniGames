@@ -15,13 +15,13 @@ let posRight;
 function newGame () {
 
 
-    let rand1 = Math.floor(Math.random() * 100);  //number for correctAnswer
+    let rand1 = Math.floor(Math.random() * 3);  //number for correctAnswer
     let rand10 = Math.floor(Math.random() * 100);  //random number for photo
 
     posRight = Math.floor(Math.random() * 5);  //Position for the right answer
 
 
-    rand1 = 1;
+
     rand2 = 2;
     rand10 = 1;
 
@@ -132,11 +132,14 @@ function guessPic (x, y) { //display guessPic based on rand1
      if (posRight == x) {
          score ++;
          console.log(score);
+         document.getElementById("erocs").innerHTML= `${score}`;
          newGame ();
 
      }
      else {
          console.log("fail");
+         document.cookie= score;
+
      }
  }
  
