@@ -5,6 +5,7 @@ let false3;
 let false4;
 let score = 0;
 let posRight;
+let decision;
 
 //onclikc compare with correct porblem: gloabl variables declare y (Stremaer number, not position)
 //display image
@@ -14,6 +15,7 @@ let posRight;
 
 function newGame () {
 
+    document.getElementById(`txen`).style.display= "none";
 
     let rand1 = Math.floor(Math.random() * 3);  //number for correctAnswer
     let rand10 = Math.floor(Math.random() * 100);  //random number for photo
@@ -50,7 +52,7 @@ function createGuess (a1, a2, a3, a4, a5 ,a6, a7) {  //1:rand1, 2:boolean, 3: po
     }
     else {
         do {
-            y = Math.floor(Math.random() * 11);  
+            y = Math.floor(Math.random() * 15);  
         }
         while (y == a1 || y == a5 || y == a6 || y == a7);
     }
@@ -72,10 +74,10 @@ function createGuess (a1, a2, a3, a4, a5 ,a6, a7) {  //1:rand1, 2:boolean, 3: po
             guess = "Monte";
             break;
         case 4:
-            guess = "Sascha";
+            guess = "Sascha Huber";
             break;
         case 5:
-            guess = "TryMacs";
+            guess = "Trymacs";
             break;
         case 6:
             guess = "Knossi";
@@ -87,13 +89,22 @@ function createGuess (a1, a2, a3, a4, a5 ,a6, a7) {  //1:rand1, 2:boolean, 3: po
             guess = "Justin";
             break;
         case 9:
-            guess = "JulienBam";
+            guess = "Paluten";
             break;
         case 10:
             guess = "Regina";
             break;
         case 11:
-            guess = "Streamer7";
+            guess = "ApoRed";
+            break;
+        case 12:
+            guess = "Tanzverbot";
+            break;
+        case 13:
+            guess = "HandOfBlood";
+            break;
+        case 14:
+            guess = "Rewi";
             break;
     }
 
@@ -129,17 +140,28 @@ function guessPic (x, y) { //display guessPic based on rand1
  }
 
  function compareStr (x) {
+    document.getElementById(`txen`).style.display= "inline-block";
+
      if (posRight == x) {
-         score ++;
-         console.log(score);
-         document.getElementById("erocs").innerHTML= `${score}`;
-         newGame ();
+         decision = true;
 
      }
      else {
-         console.log("fail");
-         document.cookie= score;
+         decision = false;
 
      }
  }
- 
+
+
+ function txenfunc () {
+     if (decision == true) {
+         score ++;
+         document.getElementById("erocs").innerHTML= `${score}`;
+         newGame ();
+     }
+
+     else {
+         //score in cookie abspeichern
+         //endpage
+     }
+ }
