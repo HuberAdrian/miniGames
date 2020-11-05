@@ -17,15 +17,12 @@ function newGame () {
 
     document.getElementById(`txen`).style.display= "none";
 
-    let rand1 = Math.floor(Math.random() * 3);  //number for correctAnswer
-    let rand10 = Math.floor(Math.random() * 100);  //random number for photo
+    let rand1 = Math.floor(Math.random() * 15);  //number for correctAnswer
+    let rand10 = Math.floor(Math.random() * 15);  //random number for photo
+
+    rand10 ++;
 
     posRight = Math.floor(Math.random() * 5);  //Position for the right answer
-
-
-
-    rand2 = 2;
-    rand10 = 1;
 
 
 
@@ -132,7 +129,7 @@ function createGuess (a1, a2, a3, a4, a5 ,a6, a7) {  //1:rand1, 2:boolean, 3: po
 
 
 function guessPic (x, y) { //display guessPic based on rand1
-    document.getElementById(`imgi`).innerHTML= `<img src="img${x}/infl${y}.jpg" style="width: 100%; max-height: 800px;" >`;
+    document.getElementById(`imgi`).innerHTML= `<img src="GuessPic/img${x}/infl${y}.png" style="width: 100%; max-height: 800px;" >`;
  }
  
  function solutionPic (y) {
