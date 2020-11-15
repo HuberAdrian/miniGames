@@ -8,7 +8,7 @@
     <script src="https://kit.fontawesome.com/4305ac2581.js"></script>
     <script src="Instagame2.js"></script>
 </head>
-<body>
+<body onpageshow="firstfunc (event)">
 
     <nav>
         <input type="checkbox" id="check">
@@ -47,13 +47,13 @@
                 <table class="qp_table qp_grid c2">
                   
                     <tr>    <!-- Reihe -->
-                        <td class="qp_col c1">  <!-- Zelle -->
+                        <td class="qp_col" id="iii0">  <!-- Zelle -->
                                             
                              <input onclick="compareStr (0)" class="qp_i" name="Stream_er" type="radio" id="i0">
                              <label class="lebal" for="i0" id="ii0"> </label> 
                                            
                         </td>
-                        <td class="qp_col c2">
+                        <td class="qp_col" id="iii1">
                                             
                             <input onclick="compareStr (1)" class="qp_i" name="Stream_er" type="radio" id="i1">
                             <label class="lebal" for="i1" id="ii1"> </label>
@@ -61,13 +61,13 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="qp_col c1">
+                        <td class="qp_col" id="iii2">
                                             
                             <input onclick="compareStr (2)" class="qp_i" name="Stream_er" type="radio" id="i2">
                             <label class="lebal" for="i2" id="ii2"> </label>
                                            
                         </td>
-                        <td class="qp_col c2">
+                        <td class="qp_col" id="iii3">
                                           
                             <input onclick="compareStr (3)" class="qp_i" name="Stream_er" type="radio" id="i3">
                             <label class="lebal" for="i3" id="ii3"> </label>
@@ -75,13 +75,13 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="qp_col c1">
+                        <td class="qp_col" id="iii4">
                                            
                             <input onclick="compareStr (4)" class="qp_i" name="Stream_er" type="radio" id="i4">
                             <label class="lebal" for="i4" id="ii4"> </label>
                                            
                         </td>
-                        <td class="qp_col c2" id="txen">
+                        <td class="qp_col" id="txen">
                                             
                             <div class="qp_bo">
                                 
@@ -106,15 +106,7 @@
     </div> 
 </div>
 
-<script>
-    /*rand1 = zufall();
-    console.log(rand1);
-    rand2 = rand1 + 1;
-    console.log(rand2);
-    console.log(rand1); */
-    newGame ();
 
-</script>
 
 
 <div class="footer">

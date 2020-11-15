@@ -1,9 +1,11 @@
+let rand1;
+let rand2;
 let correct;
 let false1;
 let false2;
 let false3;
 let false4;
-let score = 0;
+let score;
 let posRight;
 let decision;
 
@@ -12,13 +14,20 @@ let decision;
 //next = clear all start new game
 
 
+function firstfunc (event) {        //start game, prevent loading from cache
+    if (event.persisted) {
+        window.location.reload();
+    } 
+    score = 0;
+    newGame ();
+}
+
 
 function newGame () {
-
     document.getElementById(`txen`).style.display= "none";
 
-    let rand1 = Math.floor(Math.random() * 15);  //number for correctAnswer
-    let rand10 = Math.floor(Math.random() * 15);  //random number for photo
+    rand1 = Math.floor(Math.random() * 15);  //number for correctAnswer
+    rand10 = Math.floor(Math.random() * 15);  //random number for photo
 
     rand10 ++;
 
@@ -34,6 +43,7 @@ function newGame () {
     false2 = createGuess (rand1, false, posRight, 1, false1);
     false3 = createGuess (rand1, false, posRight, 2, false1, false2);
     false4 = createGuess (rand1, false, posRight, 3, false1, false2, false3);
+
 }
 
 
@@ -128,29 +138,43 @@ function createGuess (a1, a2, a3, a4, a5 ,a6, a7) {  //1:rand1, 2:boolean, 3: po
 
 
 
-function guessPic (x, y) { //display guessPic based on rand1
+function guessPic (x, y) { //display Pic based on rand1, rand10, true/false
     document.getElementById(`imgi`).innerHTML= `<img src="GuessPic/img${x}/infl${y}.png" style="width: 100%; max-height: 800px;" >`;
- }
+}
  
- function solutionPic (y) {
-     document.getElementById(`imgi`).innerHTML= `<img src="img1/infl${y}.png" style="width: 100%; max-height: 800px; " >`;
- }
 
- function compareStr (x) {
-    document.getElementById(`txen`).style.display= "inline-block";
+function compareStr (x) {
+    setTimeout(function() {document.getElementById(`txen`).style.display= "inline-block";}, 500);
 
      if (posRight == x) {
          decision = true;
-
      }
      else {
          decision = false;
 
+        let r = document.getElementsByName("Stream_er");
+        let r1;
+        for (r1 = 0; r1 < r.length; r1++)  {
+            r[r1].disabled = true;
+        } 
+
+         document.getElementById(`iii${x}`).style.backgroundColor = "#FF0000";
      }
+    document.getElementById(`iii${posRight}`).style.backgroundColor = "#32CD32";
+
+    setTimeout(function() {document.getElementById(`imgi`).innerHTML= `<img src="SolutionPic/img${rand1}/infl${rand10}.png" style="width: 100%; max-height: 800px; " >`;}, 500);
  }
 
 
- function txenfunc () {
+function txenfunc () {
+    let t = document.getElementsByClassName("qp_col");
+    let t1;
+
+    for (t1 = 0; t1 < t.length; t1++) {
+        t[t1].style.backgroundColor = "#f4f4f4";
+    }
+
+
      if (decision == true) {
          score ++;
          document.getElementById("erocs").innerHTML= `${score}`;
@@ -158,7 +182,7 @@ function guessPic (x, y) { //display guessPic based on rand1
      }
 
      else {
-         //score in cookie abspeichern
-         //endpage
+        sessionStorage.setItem("scor3", `${score}`);
+        window.location.href = "Gamefinish.html";
      }
- }
+}
