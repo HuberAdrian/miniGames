@@ -146,20 +146,20 @@ function guessPic (x, y) { //display Pic based on rand1, rand10, true/false
 function compareStr (x) {
     setTimeout(function() {document.getElementById(`txen`).style.display= "inline-block";}, 500);
 
-     if (posRight == x) {
+    let r = document.getElementsByName("Stream_er");
+    let r1;
+    for (r1 = 0; r1 < r.length; r1++)  {
+        r[r1].disabled = true;
+    } 
+
+    if (posRight == x) {
          decision = true;
      }
      else {
          decision = false;
-
-        let r = document.getElementsByName("Stream_er");
-        let r1;
-        for (r1 = 0; r1 < r.length; r1++)  {
-            r[r1].disabled = true;
-        } 
-
          document.getElementById(`iii${x}`).style.backgroundColor = "#FF0000";
      }
+
     document.getElementById(`iii${posRight}`).style.backgroundColor = "#32CD32";
 
     setTimeout(function() {document.getElementById(`imgi`).innerHTML= `<img src="SolutionPic/img${rand1}/infl${rand10}.png" style="width: 100%; max-height: 800px; " >`;}, 500);
@@ -179,6 +179,12 @@ function txenfunc () {
          score ++;
          document.getElementById("erocs").innerHTML= `${score}`;
          newGame ();
+
+        let r = document.getElementsByName("Stream_er");
+        let r1;
+        for (r1 = 0; r1 < r.length; r1++)  {
+        r[r1].disabled = false;
+        } 
      }
 
      else {
