@@ -1,16 +1,9 @@
 let final_score;
-
-let obj1 = [{"name":"Hatnix","score": 9},
-    {"name":"Caysind","score": 8},
-    {"name":"Ambrosine","score": 7},
-    {"name":"Kozross","score": 6},
-    {"name":"Jookia","score": 5},
-    {"name":"Arthur","score": 4},
-    {"name":"John Smith","score": 3},
-    {"name":"Sir Diealot","score": 2},
-    {"name":"Commander Candy","score": 1},
-    {"name":"Robert","score": 0}]
-;
+let obj1;
+// ol element containing high scores
+let List = document.getElementById("high_list");
+// element displaying error messages
+let Errors = document.getElementById("error1");
 
 
 function gameEnds (event) {
@@ -22,7 +15,7 @@ function gameEnds (event) {
     final_score = sessionStorage.getItem("scor3");
     document.getElementById("score_display").innerHTML = `${final_score}`;
 
-    dsply();
+    get_scores(list_scores);
 }
 
 function startAgain () {    //when Nochmal spielen is clicked, start again
@@ -51,11 +44,10 @@ function get_scores (callback){
     // If there is an error
     .catch(function(err){
          Errors.innerHTML=err;
-    }); 
-
+    });
 }
 
-/*//Function to display high score list
+//Function to display high score list
 var list_scores=function (scores){
      let object=JSON.parse(scores);
      let lowest_score=object[9].score;
@@ -76,12 +68,12 @@ var list_scores=function (scores){
        }
     }
 }
-*/
 
 
 
 
 
+/*
 
 function dsply () {
 
@@ -105,3 +97,5 @@ function dsply () {
     }
 
 }
+
+*/
