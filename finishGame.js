@@ -1,9 +1,6 @@
 let final_score;
 let obj1;
-// ol element containing high scores
-let List = document.getElementById("high_list");
-// element displaying error messages
-let Errors = document.getElementById("error1");
+
 
 
 function gameEnds (event) {
@@ -14,14 +11,12 @@ function gameEnds (event) {
 
     final_score = sessionStorage.getItem("scor3");
     document.getElementById("score_display").innerHTML = `${final_score}`;
-
-    get_scores(list_scores);
+    get_scores(list_scores);  //load highscoresscores
 }
 
 function startAgain () {    //when Nochmal spielen is clicked, start again
     window.location.href = "own local.html";
 }
-
 
 
 
@@ -37,7 +32,6 @@ function get_scores (callback){
          // If the response is OK
          response.json().then(function(data){
              let scores=JSON.stringify(data);
-             console.log(data);
              callback (scores);
         })
     })
@@ -48,15 +42,16 @@ function get_scores (callback){
 }
 
 //Function to display high score list
-var list_scores=function (scores){
+function list_scores (scores){
+
      let object=JSON.parse(scores);
-     let lowest_score=object[9].score;
+     let lowest_score=object[2].score;
      document.getElementById("lowscore").value=lowest_score;
      for (let i=0; i<object.length; i++){
          let li=document.createElement("LI");
          let text=document.createTextNode(object[i].name + " ... " + object[i].score);
          li.appendChild(text);
-         List.appendChild(li);
+         document.getElementById("high_list").appendChild(li);
         if (i===0){
             li.setAttribute("class","top1");
        }
